@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Store map</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container my-3">
+      <h1 class="display-4 text-center">
+        <i class="fas fa-map-marked-alt mr-4"></i> Add store
+      </h1>
+      <div class="row">
+        <div
+          class="col-md-6 offset-md-3 p-3"
+          style="border-radius:5px;border:1px solid #ccc"
+        >
+          <form id="store-form">
+            <div class="form-group">
+              <label for="Name">Store name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Name"
+                placeholder="Store name ..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="Address">Store Address:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Address"
+                placeholder="Store address ..."
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="index.html" class="btn btn-link">Back</a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/e7568d87c4.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/addStore.js"></script>
+  </body>
+</html>
