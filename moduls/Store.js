@@ -34,7 +34,9 @@ const StoreSchema = new mongoose.Schema({
 });
 //geocoder & create location
 StoreSchema.pre("save", async function(next) {
-  const loc = await geocoder.geocode(this.address);
+  await geocoder.geocode(this.address).then(res=>{
+    const loc = res
+  });
   this.location = {
     type: "Point",
     coordinates: [loc[0].longitude, loc[0].latitude],

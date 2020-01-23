@@ -20,7 +20,7 @@ exports.getStores = async (req, res, next) => {
 //@access Public
 exports.addStore = async (req, res, next) => {
   try {
-    const store = await Store.create(res.body);
+    const store = await Store.create(req.body);
     return res.status(200).json({
       success: true,
       data: store
