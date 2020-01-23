@@ -16,7 +16,7 @@ app.use(cors());
 // res.send("sdfsd");
 // });
 app.use("/api/stores", require("../router/StoreRoutes"));
-app.use(express.static(path.join("/sandbox/public")));
+app.use(express.static(path.join("../public")));
 //use mongoose
 // console.log(__dirname);
 mongoose.set("useUnifiedTopology", true);
