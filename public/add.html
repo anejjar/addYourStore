@@ -13,6 +13,11 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container my-3">
@@ -35,17 +40,32 @@
               />
             </div>
             <div class="form-group">
-              <label for="Address">Store Address:</label>
-              <input
+              <label for="Address">Store description:</label>
+              <textarea
                 type="text"
                 class="form-control"
                 id="Address"
-                placeholder="Store address ..."
-              />
+                rows="4"
+                placeholder="Describe your store ..."
+              ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="index.html" class="btn btn-link">Back</a>
+            <div class="row">
+              <div class="col-md-12">
+                <p class="text-muted">
+                  Please locate your store by clicking the map
+                </p>
+                <div
+                  id="map"
+                  style="width: 100%; height: 500px; border-radius: 5px"
+                ></div>
+              </div>
+            </div>
+            <div class="py-3">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <a href="index.html" class="btn btn-link">Back</a>
+             </div>
           </form>
+          
         </div>
       </div>
     </div>

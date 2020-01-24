@@ -9,7 +9,7 @@ const StoreSchema = new mongoose.Schema({
     unique: true,
     trim: true
   },
-  address: {
+  description: {
     type: String,
     required: [true, "Please add an address"]
   },
@@ -17,14 +17,16 @@ const StoreSchema = new mongoose.Schema({
     type: {
       type: String,
       enum: ["Point"],
-      required: true
+      // required: true
     },
     coordinates: {
       type: [Number],
-      required: true,
+      // required: true,
       index: "2dsphere"
-    },
-    formatedAddress: String
+    }
+  },
+  coordinates: {
+    type: [Number],
   },
   createdAt: {
     type: Date,
@@ -33,17 +35,12 @@ const StoreSchema = new mongoose.Schema({
 });
 //geocoder & create location
 StoreSchema.pre("save", async function(next) {
-  await geocoder.geocode(this.address).then(res=>{
-    const loc = res;
-    this.location = {
-      type: "Point",
-      coordinates: [loc[0].longitude, loc[0].latitude],
-      formatedAddress: loc[0].formattedAddress
-    };
-  });
-  
-  //we do not want to save address
-  this.address = undefined;
+
+  this.location = {
+    type: "Point",
+    coordinates: [this.coordinates[0], this.coordinates[1]]
+  }
+  this.coordinates = undefined;
   await next();
 });
 module.exports = mongoose.model("Store", StoreSchema);
